@@ -14,6 +14,7 @@ parser.add_argument('-n', '--name', help="The name of the card, starting by")
 parser.add_argument('-d', '--description', help="Search in the card description, for multiple words usage : \"word otherWord\"")
 parser.add_argument('-c', '--colors', help="colors on the card, RUGBW")
 parser.add_argument('-t', '--type', help="Type of the card, Legenday, Instant, Creature, Zombie, Elf ...")
+parser.add_argument('-m', '--manavalue', help="Manavalue less or equal to")
 args = parser.parse_args()
 
 con = sqlite3.connect("cards.db", isolation_level=None)
@@ -62,6 +63,10 @@ if args.description is not None:
         if i != 0: query += "AND "
         query += "description LIKE \"%{}%\" ".format(word)
         i += 1
+    needAnd = True
+if args.manavalue is not None:
+    if needAnd: query += "AND "
+    query += "manavalue <= {} ".format(args.manavalue)
 
 table = Table(title="Cards", row_styles=["", Style(bgcolor=Color.from_rgb(40,40,40))])
 table.add_column("Name")

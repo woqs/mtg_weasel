@@ -25,6 +25,6 @@ This will construct the database
 ### Search
 
 ```
-python search.py [-n "cardName"] [-d "text in desc"] [-t "Legendary Troll"] [-c GR]
+python search.py [-n "cardName"] [-d "text in desc"] [-t "Legendary Troll"] [-c GR] [-m 3]
 ```
 
