@@ -14,7 +14,7 @@ parser.add_argument('-n', '--name', help="The name of the card, starting by")
 parser.add_argument('-d', '--description', help="Search in the card description, for multiple words usage : \"word otherWord\"")
 parser.add_argument('-c', '--colors', help="colors on the card, RUGBW")
 parser.add_argument('-t', '--type', help="Type of the card, Legenday, Instant, Creature, Zombie, Elf ...")
-parser.add_argument('-m', '--manavalue', help="Manavalue less or equal to")
+parser.add_argument('-m', '--manavalue', help="Manavalue less or equal than")
 args = parser.parse_args()
 
 con = sqlite3.connect("cards.db", isolation_level=None)
