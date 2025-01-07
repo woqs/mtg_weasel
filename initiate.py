@@ -2,6 +2,11 @@ import json
 import sqlite3
 import sys
 import ijson
+import os
+
+print("Checking if source cards is downloaded")
+if not os.path.isfile("AtomicCards.json"):
+    os.system("wget https://mtgjson.com/api/v5/AtomicCards.json")
 
 con = sqlite3.connect("cards.db", isolation_level=None)
 cursor = con.cursor()
@@ -62,4 +67,4 @@ with open("./AtomicCards.json", "rb") as f:
 
 cursor.close()
 con.close()
-print("Finished")
+print("\nFinished")
